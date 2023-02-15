@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  --hello: -100%;
+  padding-bottom: 10px;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+:root {
+  --black: #33220d;
+  --white: #f3f3f3;
+  --tw-color1: #f7f255;
+  --tw-color1-hover: #ea8c33;
+}
+
+body {
+  background: var(--white);
+  font-family: "Viga", sans-serif;
+  display: block;
+  margin: 0;
+  text-align: center;
+  align-items: center;
+}
+
