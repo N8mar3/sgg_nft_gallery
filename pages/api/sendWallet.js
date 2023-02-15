@@ -19,12 +19,14 @@ export default async function hello(req, res) {
     for (let i = 0; i < tables.length; i++) {
         try
         {
+            console.log(`Sending data ${address} ${email}`);
             const select = `UPDATE ${tables[i]} SET NTFWALLET = ${address} WHERE EMAIL = ${email};`;
             await db.promise().execute(select, []);
+            db.commit();
             db.end();
             res.status(200).json(
                 { 
-                    resoult: `successfully added: ${address}, ${email}`
+                    resoult: `successfully added: ${address} to ${email}`
                 }
             )
         }
