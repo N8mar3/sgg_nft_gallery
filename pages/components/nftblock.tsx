@@ -7,10 +7,12 @@ function NFTBlock(props: any) {
   const email: string = props.email
   //const disconnectWallet = useDisconnect(); // Hook to disconnect from the connected wallet.
   
-  const apiUrlEndpoint = "https://sgg-nft-gallery.vercel.app/api/sendWallet/";
+  const apiUrlEndpoint = "http://localhost:3000/api/sendWallet/";
   const postData = {
-    method: "Post",
-    headers: {"Content-Type":"application/json"},
+    method: "POST",
+    headers: {
+      "Content-Type":"application/json"
+    },
     body: JSON.stringify({
       address: address,
       email: email
@@ -21,7 +23,7 @@ function NFTBlock(props: any) {
 
   return (
     <>
-      <h2 style={{ fontSize: "0.9rem" }}>Connected: {address}</h2>
+      <h2 style={{ fontSize: "0.9rem" }}>Connected: {address} {email}</h2>
       <p>
         If NFT does not show up, come back in 10 minutes
       </p>
