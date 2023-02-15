@@ -24,7 +24,7 @@ export default async function hello(req, res) {
             db.end();
             res.status(200).json(
                 { 
-                    resoult: `successfully added:\n\ ${address},\n\ ${email}`
+                    resoult: `successfully added: ${address}, ${email}`
                 }
             )
         }
