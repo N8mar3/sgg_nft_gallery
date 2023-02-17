@@ -27,10 +27,10 @@
 .textInput {
   font-family: "Viga", sans-serif;
   text-align: center;
-  background-color: rgb(230, 229, 227);
+  background-color: rgb(136, 124, 101);
   border: 1px solid grey;
   border-radius: 8px;
-  color: rgb(98, 79, 1);
+  color: rgb(65, 44, 8);
   height: 60px;
   padding: 0 16px;
   font-size: 2rem;
@@ -39,19 +39,52 @@
   box-shadow: rgba(21, 21, 21, 0.4) -5px 5px inset,rgba(25, 25, 25, 0.2) -10px 10px inset;
 }
 
+.commonText {
+  font-size: 14px;
+  --color-one:rgb(65, 53, 41);
+  --color-two:rgb(85, 71, 47);
+  color: rgb(150, 122, 94);
+}
+
+.footer {
+  font-size: 15px;
+  --color-one:rgb(65, 53, 41);
+  --color-two:rgb(85, 71, 47);
+  color: rgb(150, 122, 94);
+  text-shadow: var(--color-one) -1px 1px, var(--color-two) -2px 2px;
+}
 
 .epicheader {
+  margin-bottom: 150px;
   font-family: "Bungee Shade", sans-serif;
   font-size: 50px;
 }
 
 .h1left {
+  --color-one:rgb(123, 100, 77);
+  --color-two:rgb(198, 167, 112);
+  background: linear-gradient(
+    var(--color-two),
+    var(--color-one)
+  );
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
   text-align: left;
   padding: 0;
   margin: 0;
 }
 
 .h1right {
+  --color-one:rgb(123, 100, 77);
+  --color-two:rgb(198, 167, 112);
+  background: linear-gradient(
+    var(--color-two),
+    var(--color-one)
+  );
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
   text-align: right;
   padding: 0;
   margin: 0;
@@ -59,8 +92,8 @@
 
 .boujeeText {
   --bg-size: 300%;
-  --color-one: hsl(15 90% 55%);
-  --color-two: hsl(40 95% 55%);
+  --color-one: hsl(15, 56%, 42%);
+  --color-two: hsl(40, 41%, 39%);
   text-align: center;
   margin: 0;
   padding: 0;

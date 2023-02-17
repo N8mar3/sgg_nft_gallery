@@ -25,14 +25,14 @@ select {
 }
 
 :root {
-  --black: #33220d;
+  --black: rgb(19, 18, 16);
   --white: #f3f3f3;
   --tw-color1: #f7f255;
   --tw-color1-hover: #ea8c33;
 }
 
 body {
-  background: var(--white);
+  background: var(--black);
   font-family: "Viga", sans-serif;
   display: block;
   margin: 0;

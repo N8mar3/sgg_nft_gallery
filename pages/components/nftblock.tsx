@@ -1,13 +1,14 @@
 import ImageList from '@mui/material/ImageList';
 import NFTCards from './nftcard';
+import styles from "../styles/Home.module.css";
 
 function NFTBlock(props: any) {
 
   const address: string = props.address
   const email: string = props.email
-  //const disconnectWallet = useDisconnect(); // Hook to disconnect from the connected wallet.
   
-  const apiUrlEndpoint = "https://sgg-nft-gallery.vercel.app/api/sendWallet/";
+  
+  const apiUrlEndpoint = "http://localhost:3000/api/sendWallet/";
   const postData = {
     method: "POST",
     headers: {
@@ -25,11 +26,12 @@ function NFTBlock(props: any) {
   
   return (
     <>
-      <h2 style={{ fontSize: "0.9rem" }}>Connected: {address} {email}</h2>
-      <p>
-        If NFT does not show up, come back in 10 minutes
-      </p>
-
+      <div className={styles.commonText}>
+        <h2 style={{ fontSize: "0.9rem", color:"ffffff" }}>Connected: {address} {email}</h2>
+        <p>
+          If NFT does not show up, come back in 10 minutes
+        </p>
+      </div>
       <ImageList
         sx={{
           height: 550,
@@ -40,6 +42,7 @@ function NFTBlock(props: any) {
       >
         <NFTCards address={address}/>
       </ImageList>
+      
     </>
   )
 }

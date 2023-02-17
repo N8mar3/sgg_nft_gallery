@@ -10,17 +10,14 @@ import styles from "../styles/Home.module.css";
 import { styled } from '@mui/material/styles';
 import Header from "./header";
 import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
-import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 const ImgButton = styled(IconButton)(({ theme }) => ({
-    boxShadow: "rgba(21, 21, 21, 0.4) -5px 5px,rgba(25, 25, 25, 0.2) -10px 10px",
-    transform: "translate(10px, -10px)",
-    backgroundColor:"000000",
-    transitionProperty: "background-color, border-color, color, fill, stroke, opacity, box-shadow, transform",
+    color:"#d1be9c",
+    transitionProperty: " color, fill, stroke, opacity, box-shadow, transform",
     transitionDuration: "200ms",
     ":hover": {
         transform: "translate(-2px, 1px)",
-        boxShadow: "rgba(21, 21, 21, 0.4) -0px 0px,rgba(25, 25, 25, 0.2) 0px 0px"
     }
   }));
 
@@ -45,60 +42,61 @@ function MiddleBlock() {
                         alignItems="center"
                         direction="column"
                     >
-                        <Typography variant="h5" gutterBottom>
-                            Logout
-                        </Typography>
-                        <ImgButton
+                        <Button
                             onClick={() => disconnectWallet()}
+                            endIcon={<LogoutTwoToneIcon/>}
                         >
-                            <LogoutTwoToneIcon/>
-                        </ImgButton>    
+                            Logout
+                        </Button>    
                     </Stack>
                 </Box>
             </>
         ) : (
-            <Box sx={{marginTop:20}}>
+            <div>
                 <Header/>
-                <Stack 
-                    direction="row"
-                    style={{
-                        marginTop: 10,
-                        maxWidth: "90vw",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexDirection: "row",
-                        gap: 16,
-                    }}
-                >
-                    <input
-                        type="email"
-                        placeholder="Inter Email to see Your NFT's"
-                        className={styles.textInput}
-                        style={{ width: "90%", marginBottom: 0 }}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    {email
-                    ?
-                    <ImgButton
-                        onClick={() => {
-                            connectWithMagic({ email });
+                <Box sx={{marginTop:20}}>
+                    
+                    <Stack 
+                        direction="row"
+                        style={{
+                            marginTop: 10,
+                            maxWidth: "90vw",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            flexDirection: "row",
+                            gap: 16,
                         }}
-                        >
-                            <LockOpenTwoToneIcon sx={{fontSize:'45px'}}/>
-                    </ImgButton>
-                    :
-                    <ImgButton
-                        onClick={() => {
-                            connectWithMagic({ email });
-                        }}
-                        disabled
                     >
-                        <LockOpenTwoToneIcon sx={{fontSize:'45px'}}/>
-                    </ImgButton>
-                    }
-                </Stack>
-            </Box>
+                        <input
+                            type="email"
+                            placeholder="Inter Email to see Your NFT's"
+                            className={styles.textInput}
+                            style={{ width: "90%", marginBottom: 0 }}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        {email
+                        ?
+                        <ImgButton
+                            onClick={() => {
+                                connectWithMagic({ email });
+                            }}
+                            >
+                                <LockOpenTwoToneIcon sx={{fontSize:'55px'}}/>
+                        </ImgButton>
+                        :
+                        <ImgButton
+                            onClick={() => {
+                                connectWithMagic({ email });
+                            }}
+                            disabled
+                        >
+                            <LockOpenTwoToneIcon sx={{fontSize:'55px'}}/>
+                        </ImgButton>
+                        }
+                    </Stack>
+                </Box>
+            </div>
         )}
         </>
     )
