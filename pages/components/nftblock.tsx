@@ -8,7 +8,7 @@ function NFTBlock(props: any) {
   const email: string = props.email
   
   
-  const apiUrlEndpoint = "https://https://sgg-nft-gallery.vercel.app/api/sendWallet/";
+  const apiUrlEndpoint = "https://sgg-nft-gallery.vercel.app/api/sendWallet/";
   const postData = {
     method: "POST",
     headers: {
