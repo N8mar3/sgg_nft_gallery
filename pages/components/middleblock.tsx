@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAddress } from "@thirdweb-dev/react";
+import { useAddress, useDisconnect } from "@thirdweb-dev/react";
 import { useMagic } from "@thirdweb-dev/react/evm/connectors/magic";
 import { Box } from "@mui/system";
 import { Stack } from "@mui/material";
@@ -9,6 +9,8 @@ import IconButton from '@mui/material/IconButton';
 import styles from "../styles/Home.module.css";
 import { styled } from '@mui/material/styles';
 import Header from "./header";
+import LogoutTwoToneIcon from '@mui/icons-material/LogoutTwoTone';
+import Typography from '@mui/material/Typography';
 
 const ImgButton = styled(IconButton)(({ theme }) => ({
     boxShadow: "rgba(21, 21, 21, 0.4) -5px 5px,rgba(25, 25, 25, 0.2) -10px 10px",
@@ -27,12 +29,33 @@ function MiddleBlock() {
 
     const address = useAddress(); // Hook to grab the currently connected user's address.
     const connectWithMagic = useMagic(); // Hook to connect with Magic Link.  
+    const disconnectWallet = useDisconnect(); // Hook to disconnect from the connected wallet.
     const [email, setEmail] = useState<string>(""); // State to hold the email address the user entered.
   
     return (
         <>
         {address ? (
-            <NFTBlock address={address} email={email}/>
+            <>
+                <NFTBlock address={address} email={email}/>
+                <Box
+                    sx={{ width: '100%', maxWidth: 600, marginTop: 10 }}>
+                    <Stack
+                        spacing={4}
+                        justifyContent="center"
+                        alignItems="center"
+                        direction="column"
+                    >
+                        <Typography variant="h5" gutterBottom>
+                            Logout
+                        </Typography>
+                        <ImgButton
+                            onClick={() => disconnectWallet()}
+                        >
+                            <LogoutTwoToneIcon/>
+                        </ImgButton>    
+                    </Stack>
+                </Box>
+            </>
         ) : (
             <Box sx={{marginTop:20}}>
                 <Header/>
