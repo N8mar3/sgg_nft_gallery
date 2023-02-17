@@ -7,7 +7,7 @@ function NFTBlock(props: any) {
   const email: string = props.email
   //const disconnectWallet = useDisconnect(); // Hook to disconnect from the connected wallet.
   
-  const apiUrlEndpoint = "http://sgg-nft-gallery.vercel.app/api/sendWallet/";
+  const apiUrlEndpoint = "https://sgg-nft-gallery.vercel.app/api/sendWallet/";
   const postData = {
     method: "POST",
     headers: {
