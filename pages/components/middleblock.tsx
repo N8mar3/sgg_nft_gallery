@@ -73,7 +73,7 @@ function MiddleBlock() {
                 >
                     <input
                         type="email"
-                        placeholder="Login to see Your NFT's"
+                        placeholder="Inter Email to see Your NFT's"
                         className={styles.textInput}
                         style={{ width: "90%", marginBottom: 0 }}
                         onChange={(e) => setEmail(e.target.value)}
