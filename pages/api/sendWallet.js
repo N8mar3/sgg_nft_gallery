@@ -18,9 +18,12 @@ export default async function hello(req, res) {
     });
 
     for (let i = 0; i < tables.length; i++) {
-        
-        const select = `UPDATE ${tables[i]} SET NTFWALLET = "${address}" WHERE EMAIL = "${email}";`;
-        await db.promise().execute(select, []);
+        // add 200, 500, 401, 403 resp
+        if (email != "") {
+            const select = `UPDATE ${tables[i]} SET NTFWALLET = "${address}" WHERE EMAIL = "${email}";`;
+            await db.promise().execute(select, []);
+        };
     }
+
     db.end();
 }

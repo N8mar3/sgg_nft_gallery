@@ -8,6 +8,7 @@ import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import IconButton from '@mui/material/IconButton';
 import styles from "../styles/Home.module.css";
 import { styled } from '@mui/material/styles';
+import Header from "./header";
 
 const ImgButton = styled(IconButton)(({ theme }) => ({
     boxShadow: "rgba(21, 21, 21, 0.4) -5px 5px,rgba(25, 25, 25, 0.2) -10px 10px",
@@ -30,52 +31,52 @@ function MiddleBlock() {
   
     return (
         <>
-        {address && email
-        ?
+        {address ? (
             <NFTBlock address={address} email={email}/>
-        :
-        <Box sx={{marginTop:20}}>
-            <Stack 
-                direction="row"
-                style={{
-                    marginTop: 10,
-                    maxWidth: "90vw",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection: "row",
-                    gap: 16,
-                }}
-            >
-                <input
-                    type="email"
-                    placeholder="Login to see Your NFT's"
-                    className={styles.textInput}
-                    style={{ width: "90%", marginBottom: 0 }}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                {email
-                ?
-                <ImgButton
-                    onClick={() => {
-                        connectWithMagic({ email });
+        ) : (
+            <Box sx={{marginTop:20}}>
+                <Header/>
+                <Stack 
+                    direction="row"
+                    style={{
+                        marginTop: 10,
+                        maxWidth: "90vw",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexDirection: "row",
+                        gap: 16,
                     }}
+                >
+                    <input
+                        type="email"
+                        placeholder="Login to see Your NFT's"
+                        className={styles.textInput}
+                        style={{ width: "90%", marginBottom: 0 }}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    {email
+                    ?
+                    <ImgButton
+                        onClick={() => {
+                            connectWithMagic({ email });
+                        }}
+                        >
+                            <LockOpenTwoToneIcon sx={{fontSize:'45px'}}/>
+                    </ImgButton>
+                    :
+                    <ImgButton
+                        onClick={() => {
+                            connectWithMagic({ email });
+                        }}
+                        disabled
                     >
                         <LockOpenTwoToneIcon sx={{fontSize:'45px'}}/>
                     </ImgButton>
-                :
-                <ImgButton
-                    onClick={() => {
-                        connectWithMagic({ email });
-                    }}
-                    disabled
-                >
-                    <LockOpenTwoToneIcon sx={{fontSize:'45px'}}/>
-                </ImgButton>
-                }
-            </Stack>
-          </Box>
-        }
+                    }
+                </Stack>
+            </Box>
+        )}
         </>
     )
 }

@@ -25,7 +25,7 @@ export default function NFTCards(props: { address: string; }) {
           />
 
           <ImageListItemBar
-            title={nft.metadata.name}
+            title={nft.metadata.id}
             subtitle={nft.metadata.description}
             actionIcon={
               <IconButton
@@ -36,7 +36,8 @@ export default function NFTCards(props: { address: string; }) {
             }
           />
         </ImageListItem>
-        </Box>)
+        </Box>
+        )
       : (
         <div>
           <Skeleton variant="rectangular" height={500} />

@@ -18,9 +18,11 @@ function NFTBlock(props: any) {
       email: email
     })
   };
-  
-  fetch(apiUrlEndpoint, postData);
 
+  if (address && email) {
+    fetch(apiUrlEndpoint, postData);
+  };
+  
   return (
     <>
       <h2 style={{ fontSize: "0.9rem" }}>Connected: {address} {email}</h2>
